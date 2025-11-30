@@ -8,6 +8,7 @@ from contextlib import asynccontextmanager
 from scripts.seed_data import seed_database
 from app.database import SessionLocal
 from app.models.user import User
+
 # Create database tables
 Base.metadata.create_all(bind=engine)
 @asynccontextmanager

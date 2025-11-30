@@ -10,7 +10,7 @@ class UserCreate(BaseModel):
     password: str = Field(..., min_length=8, max_length=72, description="Password must be 8-72 characters")
     full_name: str = Field(..., min_length=3, max_length=100)
     pincode: str = Field(..., min_length=6, max_length=6)
-    mobile_number: str = Field(default="+91", description="Mobile number with country code")
+    mobile_number: Optional[str] = Field(default=None, description="Mobile number with country code")
 
 class Location(BaseModel):
     district: str
@@ -23,7 +23,7 @@ class UserResponse(BaseModel):
     full_name: str
     pincode: str
     location: Location
-    mobile_number: str  
+    mobile_number: Optional[str] = None
     is_active: bool
     created_at: datetime
     profile_picture_url: Optional[str] = None
